@@ -24,7 +24,7 @@ public class Try
 	}
 	
   public static void main(String[] args) {
-    readFolder(args[1]);
+    readFolder("tset");
   }
   
 }
