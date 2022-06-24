@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage("build") {
       steps {
-        echo 'building'
+        bat 'java Try.java'
       }
     } 
   } 
