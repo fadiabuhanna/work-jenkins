@@ -13,7 +13,7 @@ public class Try
 
 					System.out.println(file.getName());
 					if(file.isDirectory())
-						func(file.getAbsolutePath());
+						readFolder(file.getAbsolutePath());
 			}
 		}
 		catch(Exception e){
