@@ -17,14 +17,14 @@ public class Try
 			}
 		}
 		catch(Exception e){
-			System.out.println("this folder: " + folderName + " not empty!");
+			System.out.println("this folder: \"" + folderName + "\" does not exist!");
 		}
 		
 		
 	}
 	
   public static void main(String[] args) {
-    readFolder("tset");
+    readFolder(args[0]);
   }
   
 }
