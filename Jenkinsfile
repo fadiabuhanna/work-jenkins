@@ -1,8 +1,8 @@
 pipeline {
   agent any
-//  parameters{
- //   string(name: 'folderName', defaultValue: '', description: 'folder to print')
- //}
+  parameters{
+    string(name: 'folderName', defaultValue: '', description: 'folder to print')
+ }
   stages {
     stage("build") {
       steps {
