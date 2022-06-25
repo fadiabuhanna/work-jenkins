@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage("build") {
       steps {
-        pwd
+        "pwd"
         bat "java Try.java ${params.folderName}"
       }
     } 
