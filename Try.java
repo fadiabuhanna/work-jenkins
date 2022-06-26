@@ -1,5 +1,5 @@
-
 import java.io.File; 
+import java.util.Arrays;
 
 public class Try 
 {
@@ -7,14 +7,18 @@ public class Try
 		
 		try{
 			File folder = new File(folderName);
-			File[] files = folder.listFiles();
+			File[] filesArray = folder.listFiles();
 			
-			for (File file : files) {
+			
+			for (File file : filesArray) {
 
-					System.out.println(file.getName());
-					if(file.isDirectory())
-						readFolder(file.getAbsolutePath());
+				System.out.println(file.getName());
+				
+				if(file.isDirectory())
+					readFolder(file.getAbsolutePath());
+					
 			}
+			
 		}
 		catch(Exception e){
 			System.out.println("this folder: \"" + folderName + "\" does not exist!");
@@ -25,7 +29,7 @@ public class Try
 	
   public static void main(String[] args){
 	System.out.println(System.getProperty("user.dir"));
-	//readFolder(args[0]);
+	readFolder("test");
   }
   
 }
