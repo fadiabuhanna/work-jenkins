@@ -3,7 +3,7 @@ pipeline {
   parameters{
     string(name: 'folderName', defaultValue: '', description: 'folder to print')
     
-
+  }
   stages {
     stage("build") {
       steps {
