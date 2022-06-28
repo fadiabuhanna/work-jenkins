@@ -1,35 +1,30 @@
+
 import java.io.File; 
-import java.util.Arrays;
 
 public class PrintDirectory 
 {
-	static void readFolder(String folderName){
+	static void readFolder(String path){
 		
 		try{
-			File folder = new File(folderName);
+			File folder = new File(path);
 			File[] filesArray = folder.listFiles();
 			
-			
 			for (File file : filesArray) {
-
-				System.out.println(file.getName());
 				
-				if(file.isDirectory())
+				if(file.isDirectory()){
+					System.out.println("directory: " + file.getName());
 					readFolder(file.getAbsolutePath());
-					
+				}
+				else System.out.println("file: " + file.getName());
 			}
-			
 		}
 		catch(Exception e){
-			System.out.println("this folder: \"" + folderName + "\" does not exist!");
+			System.out.println("this folder: \"" + path + "\" does not exist!");
 		}
 		
-		
 	}
-	
-  public static void main(String[] args){
-	System.out.println(System.getProperty("user.dir"));
-	readFolder("args[0]");
-  }
-  
+	public static void main(String[] args){
+		System.out.println(System.getProperty("user.dir"));
+		readFolder("test");
+	}
 }
