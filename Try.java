@@ -1,30 +1,51 @@
 
 import java.io.File; 
 
-public class PrintDirectory 
+import java.io.InputStream;
+
+import java.io.ByteArrayOutputStream;
+import com.jcraft.jsch.*;
+
+
+public class Try 
 {
-	static void readFolder(String path){
-		
-		try{
-			File folder = new File(path);
-			File[] filesArray = folder.listFiles();
-			
-			for (File file : filesArray) {
-				
-				if(file.isDirectory()){
-					System.out.println("directory: " + file.getName());
-					readFolder(file.getAbsolutePath());
-				}
-				else System.out.println("file: " + file.getName());
-			}
-		}
-		catch(Exception e){
-			System.out.println("this folder: \"" + path + "\" does not exist!");
-		}
-		
-	}
+
+	
 	public static void main(String[] args){
+		//SSHClient ssh = new SSHClient();
+		System.out.println("HELLO");
+		
 		System.out.println(System.getProperty("user.dir"));
-		readFolder(args[0]);
+		
+
+		    Session session = null;
+			ChannelExec channel = null;
+		try{
+		session = new JSch().getSession("fadi", "127.0.0.1", 2222);
+        session.setPassword("123123123");
+        session.setConfig("StrictHostKeyChecking", "no");
+        session.connect();
+        
+        channel = (ChannelExec) session.openChannel("exec");
+        channel.setCommand("ls");
+        ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
+        channel.setOutputStream(responseStream);
+		System.out.println("1");
+        channel.connect();
+		System.out.println("2");
+		
+		        while (channel.isConnected()) {
+            Thread.sleep(100);
+        }
+        
+        String responseString = new String(responseStream.toByteArray());
+        System.out.println(responseString);
+		
+		session.disconnect();
+		
+		}catch(Exception e){
+			System.out.println("hello");
+		}
+
 	}
 }
