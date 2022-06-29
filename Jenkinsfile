@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage("build") {
       steps {
-        bat "java Try.java test"
+        bat "java -classpath jsch-0.1.55.jar PrintDirectory.java"
       }
     } 
   } 
