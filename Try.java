@@ -25,6 +25,6 @@ public class PrintDirectory
 	}
 	public static void main(String[] args){
 		System.out.println(System.getProperty("user.dir"));
-		readFolder("aaa");
+		readFolder(args[0]);
 	}
 }
