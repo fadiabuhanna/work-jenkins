@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage("build") {
       steps {
-        bat "java -classpath jsch-0.1.55.jar Try.java "fadi" "127.0.0.1" "2222" "
+        bat "java -classpath jsch-0.1.55.jar Try.java "fadi" "127.0.0.1" "2222""
       }
     } 
   } 
