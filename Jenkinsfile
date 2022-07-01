@@ -1,9 +1,9 @@
 pipeline {
   agent any
   parameters{
-    string(name: 'userName', defaultValue: 'fadi', description: 'user name')
-    string(name: 'hostip', defaultValue: '127.0.0.1', description: 'host ip address')
-    string(name: 'port', defaultValue: '2222', description: 'port')
+    string(name: 'UserName', defaultValue: 'fadi', description: 'user name')
+    string(name: 'HostIp', defaultValue: '127.0.0.1', description: 'host ip address')
+    string(name: 'Port', defaultValue: '2222', description: 'port')
   }
   stages {
     stage("build") {
