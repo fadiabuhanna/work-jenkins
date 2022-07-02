@@ -29,7 +29,7 @@ public class PrintDirectory
 			channel.connect();
 			
 			//Have to wait a few seconds to fetch the folders and files
-			while (!channel.isConnected()) {
+			while (channel.isConnected()) {
 				Thread.sleep(100);
 			}
 			
