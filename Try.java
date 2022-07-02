@@ -8,7 +8,7 @@ import com.jcraft.jsch.*;
 public class PrintDirectory 
 {
 
-	static void path_function(String USER, String HOST_ip, int host_POTR, String password, String PATH) {
+	static void path_function(String USER, String HOST_ip, int host_POTR, String password, String DIR) {
 		
 		Session session = null;
 		ChannelExec channel = null;
@@ -26,8 +26,8 @@ public class PrintDirectory
 			channel = (ChannelExec) session.openChannel("exec");
 			
 			// ls -R: Takes all folders and files (Recursive)
-			if(PATH == null){  System.out.println("HELLO"); channel.setCommand("ls");}
-			else channel.setCommand("ls "+ PATH);
+			if(DIR == null){  System.out.println("HELLO"); channel.setCommand("ls");}
+			else channel.setCommand("ls "+ DIR);
 			ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
 			channel.setOutputStream(responseStream);
 			channel.connect();
@@ -59,8 +59,8 @@ public class PrintDirectory
 			 String PORT = System.getenv("Port");
 			 int PORT_NUMBER = Integer.parseInt(PORT);
 			 String PASSWORD = System.getenv("password");
-			 String PATH = System.getenv("path");
-			path_function(USER,HOST,PORT_NUMBER,PASSWORD,PATH);
+			 String DIR = System.getenv("path");
+			path_function(USER,HOST,PORT_NUMBER,PASSWORD,DIR);
         }
         catch (NumberFormatException ex){
             ex.printStackTrace();
