@@ -59,7 +59,7 @@ public class PrintDirectory
 			 String PORT = System.getenv("Port");
 			 int PORT_NUMBER = Integer.parseInt(PORT);
 			 String PASSWORD = System.getenv("password");
-			 String PATH = System.getenv("roota");
+			 String PATH = System.getenv("pathName");
 			path_function(USER,HOST,PORT_NUMBER,PASSWORD,PATH);
         }
         catch (NumberFormatException ex){
