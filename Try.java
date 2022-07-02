@@ -55,9 +55,9 @@ public class PrintDirectory
 			 String HOST = System.getenv("HostIp");
 			 String PORT = System.getenv("Port");
 
-   
+   			int PORT_NUMBER = Integer.parseInt(PORT);
 			 
-			path(USER,HOST,PORT);
+			path(USER,HOST,PORT_NUMBER);
         }
         catch (NumberFormatException ex){
             ex.printStackTrace();
