@@ -5,7 +5,7 @@ pipeline {
     string(name: 'HostIp', defaultValue: '127.0.0.1', description: 'host ip address')
     string(name: 'Port', defaultValue: '2222', description: 'port')
     string(name: 'password', defaultValue: '123123123', description: 'password')
-    string(name: 'path', defaultValue: 'ls', description: 'path')
+    string(name: 'path', description: 'path')
   }
   stages {
     stage("build") {
