@@ -13,6 +13,7 @@ public class PrintDirectory
 	static void path(String USER, String HOST, int POTR, String password) {
 		Session session = null;
 		ChannelExec channel = null;
+		int count=0;
 		try{
 			//session = new JSch().getSession("fadi", "127.0.0.1", 2222);
 			session = new JSch().getSession(USER, HOST, POTR);
@@ -30,9 +31,10 @@ public class PrintDirectory
 			
 			//Have to wait a few seconds to fetch the folders and files
 			while (channel.isConnected()) {
+				count++;
 				Thread.sleep(100);
 			}
-			
+			System.out.println(count);
 			String responseString = new String(responseStream.toByteArray());
 
 			// print the list of content - folders and files
