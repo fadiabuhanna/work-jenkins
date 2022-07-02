@@ -10,13 +10,13 @@ import com.jcraft.jsch.*;
 public class PrintDirectory 
 {
 
-	static void path(String USER, String HOST, int POTR) {
+	static void path(String USER, String HOST, int POTR, String password) {
 		Session session = null;
 		ChannelExec channel = null;
 		try{
 			//session = new JSch().getSession("fadi", "127.0.0.1", 2222);
 			session = new JSch().getSession(USER, HOST, POTR);
-			session.setPassword("123123123");
+			session.setPassword(password);
 			session.setConfig("StrictHostKeyChecking", "no");
 			session.connect();
 			
@@ -54,10 +54,11 @@ public class PrintDirectory
 			 String USER = System.getProperty("UserName");
 			 String HOST = System.getenv("HostIp");
 			 String PORT = System.getenv("Port");
+			 String PASSWORD = System.getenv("password");
 
    			int PORT_NUMBER = Integer.parseInt(PORT);
 			 
-			path(USER,HOST,PORT_NUMBER);
+			path(USER,HOST,PORT_NUMBER,PASSWORD);
         }
         catch (NumberFormatException ex){
             ex.printStackTrace();
