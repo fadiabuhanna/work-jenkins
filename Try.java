@@ -26,7 +26,7 @@ public class PrintDirectory
 			channel = (ChannelExec) session.openChannel("exec");
 			
 			// ls -R: Takes all folders and files (Recursive)
-			if(ROOT == ""){ channel.setCommand("ls"); System.out.println("HELLO");}
+			if(ROOT == ""){  System.out.println("HELLO"); channel.setCommand("ls");}
 			else channel.setCommand("ls "+ ROOT);
 			ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
 			channel.setOutputStream(responseStream);
