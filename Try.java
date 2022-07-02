@@ -8,7 +8,7 @@ import com.jcraft.jsch.*;
 public class PrintDirectory 
 {
 
-	static void path(String USER, String HOST_ip, int host_POTR, String password, String PATH) {
+	static void path_function(String USER, String HOST_ip, int host_POTR, String password, String PATH) {
 		
 		Session session = null;
 		ChannelExec channel = null;
@@ -59,7 +59,7 @@ public class PrintDirectory
 			 int PORT_NUMBER = Integer.parseInt(PORT);
 			 String PASSWORD = System.getenv("password");
 			 String PATH = System.getenv("path");
-			path(USER,HOST,PORT_NUMBER,PASSWORD,PATH);
+			path_function(USER,HOST,PORT_NUMBER,PASSWORD,PATH);
         }
         catch (NumberFormatException ex){
             ex.printStackTrace();
