@@ -1,5 +1,3 @@
-
-
 //This class implements an output stream in which the data is written into a byte array
 import java.io.ByteArrayOutputStream;
 
@@ -10,16 +8,21 @@ import com.jcraft.jsch.*;
 public class PrintDirectory 
 {
 
-	static void path(String USER, String HOST, int POTR, String password) {
+	static void path(String USER, String HOST_ip, int host_POTR, String password) {
+		
 		Session session = null;
 		ChannelExec channel = null;
 		try{
 			//session = new JSch().getSession("fadi", "127.0.0.1", 2222);
-			session = new JSch().getSession(USER, HOST, POTR);
+			
+			//The code connects to remote HOST_ip using a protocol ssh and I used a jsch directory to connect through java
+			// Connecting from: user, HOST_ip, port, password
+			session = new JSch().getSession(USER, HOST_ip, host_POTR);
 			session.setPassword(password);
 			session.setConfig("StrictHostKeyChecking", "no");
 			session.connect();
 			
+			//The Linux exec command executes a Shell command without creating a new process
 			channel = (ChannelExec) session.openChannel("exec");
 			
 			// ls -R: Takes all folders and files (Recursive)
@@ -28,7 +31,7 @@ public class PrintDirectory
 			channel.setOutputStream(responseStream);
 			channel.connect();
 			
-			//Have to wait a few seconds to fetch the folders and files
+			//Waiting for it to connect
 			while (channel.isConnected()) {
 				Thread.sleep(100);
 			}
@@ -64,4 +67,3 @@ public class PrintDirectory
         }
 	}
 }
-
