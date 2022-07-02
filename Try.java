@@ -53,6 +53,8 @@ public class PrintDirectory
 			 System.out.println("hala");
 			 String Test = System.getProperty("UserName");
 			 System.out.println(Test);
+			  Test = System.env("UserName");
+			 System.out.println(Test);
              String USER=args[0];
  			String HOST=args[1];
  			int POTR = Integer.parseInt(args[2]);
