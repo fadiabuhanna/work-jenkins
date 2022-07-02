@@ -57,7 +57,7 @@ public class PrintDirectory
 
    
 			 
-			path(USER,HOST,POTR);
+			path(USER,HOST,PORT);
         }
         catch (NumberFormatException ex){
             ex.printStackTrace();
