@@ -30,6 +30,7 @@ public class PrintDirectory
 			
 			//Have to wait a few seconds to fetch the folders and files
 			channel.isConnected();
+			Thread.sleep(100);
 			String responseString = new String(responseStream.toByteArray());
 
 			// print the list of content - folders and files
