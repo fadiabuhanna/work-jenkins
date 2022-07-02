@@ -50,14 +50,12 @@ public class PrintDirectory
 	public static void main(String[] args){
 		
 		 try{
-			 System.out.println("hala");
-			 String Test = System.getProperty("UserName");
-			 System.out.println(Test);
-			  Test = System.getenv("UserName");
-			 System.out.println(Test);
-             String USER=args[0];
- 			String HOST=args[1];
- 			int POTR = Integer.parseInt(args[2]);
+
+			 String USER = System.getProperty("UserName");
+			 String HOST = System.getenv("HostIp");
+			 String PORT = System.getenv("Port");
+
+   
 			 
 			path(USER,HOST,POTR);
         }
