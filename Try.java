@@ -28,7 +28,10 @@ public class PrintDirectory
 			channel.setOutputStream(responseStream);
 			channel.connect();
 			
-			
+			//Have to wait a few seconds to fetch the folders and files
+			while (channel.isConnected()) {
+				Thread.sleep(100);
+			}
 			
 			String responseString = new String(responseStream.toByteArray());
 
